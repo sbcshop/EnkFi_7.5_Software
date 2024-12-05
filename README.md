@@ -42,25 +42,29 @@ This GitHub provides getting started instructions to use EnkFi 7.5" E-Paper.
   - **Driver** : UC8179
 
 
-
-<!--
 ## Getting Started with EnkFi 7.5" Board
 ### Pinout
 <img src= "https://cdn.shopify.com/s/files/1/1217/2104/files/esp32_Pin.png?v=1718797005" />
 
-- (1) Serial Servo connector
-- (2) Header 2.5” input (6~8.4V DC) 
-- (3) DC Jack Input (6~8.4V DC)
-- (4),(5), (6) Programmable Buttons 
-- (7) Boot Button
-- (8) Type C for Programming/Power
-- (9) Reset Button
-- (10) TFT 1.14” Display
-- (11) ESP32 S3 microcontroller module
-- (12) Power Status LED
-- (13) & (14) GPIOs and Power breakout
+- 1) Power LED
+- 2) Charging Status
+- 3) Battery Connector
+- 4) E-paper connector 
+- 5) DS3231 RTC
+- 6) RTC Battery Holder
+- 7) Buzzer 
+- 8) GPIOs Breakout
+- 9) TF card slot
+- 10) Native USB (D+/D-)
+- 11) Serial USB 
+- 12) ESP32 S3 WROOM-1
+- 13) Boot Button
+- 14) Reset Button
+- 15) & 16) Programmable Buttons
+- 17) 7.5” E-Paper Display
 
-  
+
+<!--  
 ### Interfacing Details
 
  - _Serial Servo Bus Pins:_
@@ -143,7 +147,6 @@ This GitHub provides getting started instructions to use EnkFi 7.5" E-Paper.
    - Open one example code in Arduino and make sure you have selected correct board with suitable com port, click on upload button to transfer code on Serial Servo ESP32.
      <img src="https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/upload_process.gif">
    - Checkout other examples below and build your own custom program codes using those references.
-
 -->
 
 ## Resources
