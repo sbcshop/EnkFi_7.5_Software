@@ -44,77 +44,76 @@ This GitHub provides getting started instructions to use EnkFi 7.5" E-Paper.
 
 ## Getting Started with EnkFi 7.5" Board
 ### Pinout
-<img src= "https://cdn.shopify.com/s/files/1/1217/2104/files/esp32_Pin.png?v=1718797005" />
+<img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/EnkFi_7.5_pinout.png" />
 
-- 1) Power LED
-- 2) Charging Status
-- 3) Battery Connector
-- 4) E-paper connector 
-- 5) DS3231 RTC
-- 6) RTC Battery Holder
-- 7) Buzzer 
-- 8) GPIOs Breakout
-- 9) TF card slot
-- 10) Native USB (D+/D-)
-- 11) Serial USB 
-- 12) ESP32 S3 WROOM-1
-- 13) Boot Button
-- 14) Reset Button
-- 15) & 16) Programmable Buttons
-- 17) 7.5” E-Paper Display
-
-
-<!--  
-### Interfacing Details
-
- - _Serial Servo Bus Pins:_
-   * Servo connector having +ve[6~8.4VDC], -ve[GND] and Signal pin. 
-   * Serial Servo Signal pins breakout into UART RXD and TXD to connect with ESP32 UART pins,
-     
-     | ESP32 | Servo | Description | 
-     |---|---|---|
-     | TXD0/GPIO43 | Servo Bus RXD | UART communication pin |
-     | RXD0/GPIO44 | Servo Bus TXD | UART communication pin |
+- (1) Power LED
+- (2) Charging Status
+- (3) Battery Connector
+- (4) E-paper connector 
+- (5) DS3231 RTC
+- (6) RTC Battery Holder
+- (7) Buzzer 
+- (8) GPIOs Breakout
+- (9) TF card slot
+- (10) Native USB (USB_D+/USB_D-)
+- (11) Serial USB 
+- (12) ESP32 S3 WROOM-1
+- (13) Boot Button
+- (14) Reset Button
+- (15) & 16) Programmable Buttons
+- (17) 7.5” E-Paper Display
   
-- _Display interfacing with ESP32_
+### Interfacing Details
+  
+- **_E-Paper Display interfacing with ESP32_**
     | ESP32 | Display | Function |
     |---|---|---|
-    | IO12 | LCD_CLK | Clock pin of SPI interface for Display|
-    | IO11 | LCD_DIN | MOSI (Master OUT Slave IN) pin of SPI interface|
-    | IO10 | LCD_CS | Chip Select pin of SPI interface|
-    | IO13 | LCD_DC| Data/Command (MISO) pin of SPI interface|
-    | IO14 | LCD_RST | Display Reset pin |
-    | IO9  | BL | Backlight of display|
-  
-- _Buttons Interfacing_
+    | IO12 | DISPLAY_SCK_PIN  | Clock pin of SPI interface for E-Paper Display |
+    | IO11 | DISPLAY_MOSI_PIN | MOSI (Master OUT Slave IN) pin of SPI interface|
+    | IO13 | DISPLAY_DC_PIN   | Data/Command (MISO) pin of SPI interface |
+    | IO10 | DISPLAY_CS_PIN   | Chip Select pin of SPI interface|
+    | IO21 | DISPLAY_BUSY_PIN | Busy Status pin of E-Paper |
+    | IO14 | DISPLAY_RST_PIN  | Display Reset pin |
+
+ - **_SDcard Interface_**
+   | ESP32 | SDCard | Function |
+   |---|---|---|
+   | IO42 | CARD_CLK | Clock pin of SPI interface for Display|
+   | IO2  | CARD_MOSI | MOSI (Master OUT Slave IN) pin of SPI interface|
+   | IO41 | CARD_MISO  | MISO (Master IN Slave OUT) pin of SPI interface|
+   | IO1  | CARD_CS  | Chip Select pin of SPI interface|
+
+- **_Buzzer and Buttons Interfacing_**
     | ESP32 | Hardware | Function |
     |---|---|---|
+    |IO15 | Buzzer |Buzzer Positive Pin |  
     |IO0 | BOOT |Boot button |
     |IO4 | BT1 | Programmable Button |
     |IO5 | BT2 | Programmable Button |
     |IO6 | BT3 | Programmable Button |
-  
-- _GPIOs Breakout_
-  
-  | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
-  |---|---|---|
-  |DM   | I/O/T | RTC_GPIO20, GPIO20, U1CTS, ADC2_CH9, CLK_OUT1, _**USB_D+**_ |
-  |DP   | I/O/T | RTC_GPIO19, GPIO19, U1RTS, ADC2_CH8, CLK_OUT2, _**USB_D-**_ |
-  |GND  | P     | Supply Ground |
-  |5V   | P     | Positive Supply, 5V |
-  |3V3  | P     | Positive Supply, 3.3V |
-  |GP8  | I/O/T | RTC_GPIO8, _**GPIO8**_ , TOUCH8, ADC1_CH7, SUBSPICS1  |  
+    |IO7 | BT3 | Programmable Button |
 
-  | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
-  |---|---|---|
-  |GP1  | I/O/T | RTC_GPIO1, _**GPIO1**_, TOUCH1, ADC1_CH0  |
-  |GP2  | I/O/T | RTC_GPIO2, _**GPIO2**_, TOUCH2, ADC1_CH1  |
-  |GP42 | I/O/T | _**MTMS**_ , GPIO42  |
-  |GP41 | I/O/T | _**MTDI**_ , GPIO41, CLK_OUT1 |
-  |GP39 | I/O/T | _**MTCK**_ , GPIO39, CLK_OUT3, SUBSPICS1 |
-  |GP38 | I/O/T | _**GPIO38**_ , FSPIWP, SUBSPIWP  |
+ - **_DS3231 RTC interfacing with ESP32 using I2C_** 
+    | ESP32 | DS3231 | Description | 
+    |---|---|---|
+    | IO38 | SDA | I2C Serial Data Pin |
+    | IO39 | SCL | I2C Serial Clock Pin |
 
-  *I-INPUT, O-OUTPUT, P-POWER & T-HIGH IMPEDENCE
+- **_GPIOs Breakout_**
+  
+    | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
+    |---|---|---|    
+    |3V3  | P     | Positive Supply, 3.3V |
+    |5V   | P     | Positive Supply, 5V |
+    |GND  | P     | Supply Ground |
+    |TX   | I/O/T | RTC_GPIO17,**_GPIO17_**,U1TXD,ADC2_CH6 |
+    |RX   | I/O/T | RTC_GPIO18,**_GPIO18_**,U1RXD,ADC2_CH7,CLK_OUT3 |
+    |IO8  | I/O/T | RTC_GPIO8, _**GPIO8**_ , TOUCH8, ADC1_CH7, SUBSPICS1  |  
+    |IO9  | I/O/T | RTC_GPIO9,**_GPIO9_**,TOUCH9,ADC1_CH8,FSPIHD,SUBSPIHD |
+    |IO16 | I/O/T | RTC_GPIO16,**_GPIO16_**,U0CTS,ADC2_CH5,XTAL_32K_N |
+    |IO40 | I/O/T | MTDO,**_GPIO40_**,CLK_OUT2 |
+  
+    *I-INPUT, O-OUTPUT, P-POWER & T-HIGH IMPEDENCE
   
 ### 1. Configure and Setup Development Environment
    - Download Arduino IDE from [official site](https://www.arduino.cc/en/software) and install into your system. We have use Arduino IDE 1.8.19
@@ -135,7 +134,7 @@ This GitHub provides getting started instructions to use EnkFi 7.5" E-Paper.
 
      <img src="https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/select_esp32_with_comport.gif">
      
-     
+<!--     
 ### 2. Installing Libraries
    - Download [library zip file](https://github.com/sbcshop/Serial_Servo_ESP32_Software/blob/main/libraries.zip) provided here in github.
    - Extract and copy files inside Document > Arduino > Libraries folder. Make sure to restart Arduino IDE whenever you update or add any libraries.
