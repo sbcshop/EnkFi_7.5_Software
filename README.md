@@ -125,24 +125,52 @@ This GitHub provides getting started instructions to use EnkFi 7.5" E-Paper.
    - Now will install ESP32 based boards as shown in below image,
 
      <img src= "https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/install_ESP32boards.gif" />
-     
-   - Once done, keeping default settings select the ESP32S3 Dev Module with suitable com port (may be different in your case) as shown below, 
+   
+   - You have two options to program onboard ESP32 of EnkFi board, **_UART USB_** OR **_Native USB_**.
+
+     <img src="https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/usb_options.png" width="372" height="214">   
+   
+   - When using Native ESP USB, you will have to press BOOT button once and then connect Type C. For UART USB no need, directly connect USB.
+   
+   - Once done (for UART USB), keeping default settings select the ESP32S3 Dev Module with suitable COM PORT (may be different in your case) as shown below,
 
      <img src="https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/select_esp32_with_comport.gif">
-     
-<!--     
-### 2. Installing Libraries
-   - Download [library zip file](https://github.com/sbcshop/Serial_Servo_ESP32_Software/blob/main/libraries.zip) provided here in github.
-   - Extract and copy files inside Document > Arduino > Libraries folder. Make sure to restart Arduino IDE whenever you update or add any libraries.
 
-     <img src= "https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/library_files_path.png" />
+     You can view assigned COM port through Device Manager,
+
+     <img src="https://github.com/sbcshop/2x2_Display_ESP32_Software/blob/main/images/UART_com_port.jpg" width="582" height="421">
      
+   - When using USB native you will get COM PORT as shown in below image, and while uploading you can enable CDC Mode to visualize data on serial com port.
+     
+     <img src="https://github.com/sbcshop/2x2_Display_ESP32_Software/blob/main/images/Native_USB_device_com_port.jpg" width="410" height="93">
+     
+     <img src="https://github.com/sbcshop/2x2_Display_ESP32_Software/blob/main/images/Native_USB_Arduino_com.jpg" width="" height="">
+     
+        
+### 2. Installing Libraries
+   - When compiling sample codes there are some dependency on external libraries sometime which you can add as shown here.
+   - RTC library for testing DS3231, select Sketch > Include Library > Manage Libraries. Install RTClib version 2.1.4,
+
+     <img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/Lib_install.png" />
+
+     <img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/RTClib_install_1.png" />
+
+   - Similarly you can add more libraries if needed, make sure to install correct version. 
+
+
 ### 3. Testing First Code
-   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes](https://github.com/sbcshop/Serial_Servo_ESP32_Software/tree/main/examples) in github which you can download and try. 
-   - Open one example code in Arduino and make sure you have selected correct board with suitable com port, click on upload button to transfer code on Serial Servo ESP32.
+   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples) in github which you can download and try. 
+   - Open one example code in Arduino and make sure you have selected correct board with suitable com port, click on upload button to transfer code on EnkFi board.
      <img src="https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/upload_process.gif">
    - Checkout other examples below and build your own custom program codes using those references.
--->
+
+### Example Codes
+   - [Example 1](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples/Demo_Buzzer_Button) : Onboard Button and Buzzer Testing 
+   - [Example 2](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples/Demo_GraphicsDisplay) : Create Graphics like line, circle, etc. on EnkFi E-Paper display
+   - [Example 3](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples/Demo_ImageDisplay) : Image display demo, follow instructions [here](https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/documents/Image%20to%20Arduino%20Byte%20Conversion.pdf) to create your own array image to use with code.   
+   - and [Many more...](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples)
+
+   Now you are ready to try out your own codes, **_Happy Coding!_**
 
 ## Resources
   * [Schematic](https://github.com/sbcshop/EnkFi_7.5_Hardware/blob/main/Design%20Data/EnkFi%207.5%20Sch.PDF)
