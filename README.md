@@ -53,7 +53,7 @@ This GitHub provides getting started instructions to use EnkFi 7.5" E-Paper.
 |(3) Battery Connector  | (9) TF card slot                | (15) Programmable Buttons |
 |(4) E-paper connector  | (10) Native USB (USB_D+/USB_D-) | (16) Programmable Buttons  |
 |(5) DS3231 RTC         | (11) Serial USB                 | (17) 7.5” E-Paper Display |
-|(6) RTC Battery Holder | (12) ESP32 S3 WROOM-1           | |
+|(6) Coin Cell Holder   | (12) ESP32 S3 WROOM-1           | |
   
 ### Interfacing Details
   
